@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Select Unit</h2>
+  <ion-radio-group [(ngModel)]="selectedUnit">
+    <ion-item>
+      <ion-label>Metric</ion-label>
+      <ion-radio slot="start" value="metric"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Imperial</ion-label>
+      <ion-radio slot="start" value="imperial"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Kelvin</ion-label>
+      <ion-radio slot="start" value="kelvin"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+  <ion-button expand="full" (click)="saveSettings()">Save</ion-button>
+</ion-content>

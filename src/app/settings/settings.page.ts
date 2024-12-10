@@ -10,11 +10,11 @@ import { FormsModule } from '@angular/forms';
   imports: [IonicModule, FormsModule],
 })
 export class SettingsPage {
-  selectedUnit: string = 'metric'; // Default unit
+  selectedUnit: string = 'metric';
 
   constructor() {}
 
   saveSettings() {
-    console.log('Selected unit:', this.selectedUnit); // For debugging
+    console.log('Selected unit:', this.selectedUnit); 
   }
 }

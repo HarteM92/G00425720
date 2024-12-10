@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Countries</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let country of countries">
+      <ion-thumbnail slot="start">
+        <img [src]="country.flags.png" alt="{{ country.name.official }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ country.name.official }}</h2>
+      </ion-label>
+      <ion-button routerLink="/news" [queryParams]="{ code: country.cca2 }">News</ion-button>
+      <ion-button routerLink="/weather" [queryParams]="{ city: country.capital[0] }">Weather</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

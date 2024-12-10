@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular'; 
 import { FormsModule } from '@angular/forms'; 
 import { RouterModule } from '@angular/router'; 
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,14 @@ import { RouterModule } from '@angular/router';
 export class HomePage {
   searchTerm: string = ''; 
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   search() {
-    console.log('Search term:', this.searchTerm);
+    if (this.searchTerm.trim()) {
+      console.log('Navigating to countries page with term:', this.searchTerm);
+      this.router.navigate(['/countries'], { queryParams: { term: this.searchTerm } });
+    } else {
+      console.log('Search term is empty.');
+    }
   }
 }

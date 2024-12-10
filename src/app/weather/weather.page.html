@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Weather</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="weather?.location">
+    <h2>{{ weather.location.name }}</h2>
+    <p>Temperature: {{ weather.current.temperature }}°</p>
+    <p>Condition: {{ weather.current.weather_descriptions[0] }}</p>
+    <img [src]="weather.current.weather_icons[0]" alt="Weather Icon" />
+  </div>
+  <p *ngIf="!weather?.location">No weather data available.</p>
+</ion-content>

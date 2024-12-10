@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>News</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="news.length > 0; else noNews">
+    <ion-item *ngFor="let article of news">
+      <ion-label>
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ng-template #noNews>
+    <p>No news available.</p>
+  </ng-template>
+</ion-content>

@@ -31,7 +31,10 @@ export class WeatherPage implements OnInit {
       this.cityName = params['city'];
       this.latitude = params['lat'];
       this.longitude = params['lon'];
-      this.units = params['units'] || 'metric'; 
+
+      const savedUnits = localStorage.getItem('unitPreference');
+
+      this.units = savedUnits || 'metric'; 
 
       if (this.latitude && this.longitude) {
         this.fetchWeather();

@@ -30,7 +30,7 @@ export class CountriesPage implements OnInit {
   }
 
   fetchCountries() {
-    console.log('Making API call with term:', this.searchTerm); 
+    console.log('API call:', this.searchTerm); 
     this.http
       .get(`https://restcountries.com/v3.1/name/${this.searchTerm}`)
       .subscribe(

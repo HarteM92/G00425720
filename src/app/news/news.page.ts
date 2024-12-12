@@ -43,6 +43,9 @@ export class NewsPage implements OnInit {
   fetchNews() {
     const apiKey = 'pub_619637a2a29b4dabf22475a2beabd2f26d0ef';
     const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=${this.countryCode}`;
+    
+    console.log('Fetching news from', url);
+    
     this.http.get(url).subscribe(
       (data: any) => {
         this.news = data.results || [];

@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 export class WeatherPage implements OnInit {
   weather: any = null;
   cityName: string = '';
+  latitude: string = '';
+  longitude: string = '';
+  units: string = 'metric'; 
 
   constructor(
     private route: ActivatedRoute,
@@ -26,12 +29,15 @@ export class WeatherPage implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       this.cityName = params['city'];
-      if (this.cityName) {
+      this.latitude = params['lat'];
+      this.longitude = params['lon'];
+      this.units = params['units'] || 'metric'; 
+
+      if (this.latitude && this.longitude) {
         this.fetchWeather();
       }
     });
 
-   
     setTimeout(() => {
       const ionPage = this.elementRef.nativeElement.closest('.ion-page');
       if (ionPage) {
@@ -42,8 +48,11 @@ export class WeatherPage implements OnInit {
   }
 
   fetchWeather() {
-    const apiKey = 'b3ae19eaf011ee17ef116a2145af5876';
-    const url = `http://api.weatherstack.com/current?access_key=${apiKey}&query=${this.cityName}`;
+    const apiKey = '469fe55a1aee66e01edea2a5309997bf'; 
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.latitude}&lon=${this.longitude}&units=${this.units}&appid=${apiKey}`;
+    
+    console.log('Fetching weather from', url);
+    
     this.http.get(url).subscribe(
       (data: any) => {
         this.weather = data;

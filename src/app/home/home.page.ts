@@ -18,10 +18,10 @@ export class HomePage {
 
   search() {
     if (this.searchTerm.trim()) {
-      console.log('Navigating to countries page with term:', this.searchTerm);
+      console.log('Searching', this.searchTerm);
       this.router.navigate(['/countries'], { queryParams: { term: this.searchTerm } });
     } else {
-      console.log('Search term is empty.');
+      console.log('Search term is empty');
     }
   }
 }

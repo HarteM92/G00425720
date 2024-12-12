@@ -14,7 +14,10 @@
         <h2>{{ country.name.official }}</h2>
       </ion-label>
       <ion-button routerLink="/news" [queryParams]="{ code: country.cca2 }">News</ion-button>
-      <ion-button routerLink="/weather" [queryParams]="{ city: country.capital[0] }">Weather</ion-button>
+      <ion-button routerLink="/weather" 
+            [queryParams]="{ city: country.capital[0], lat: country.latlng[0], lon: country.latlng[1], units: 'metric' }">
+  Weather
+</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

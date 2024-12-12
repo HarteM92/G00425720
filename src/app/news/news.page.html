@@ -7,9 +7,13 @@
 <ion-content class="ion-padding">
   <ion-list *ngIf="news.length > 0; else noNews">
     <ion-item *ngFor="let article of news">
+      <ion-thumbnail slot="start" *ngIf="article.image_url">
+        <img [src]="article.image_url" alt="{{ article.title }}" />
+      </ion-thumbnail>
       <ion-label>
         <h2>{{ article.title }}</h2>
         <p>{{ article.description }}</p>
+        <a [href]="article.link" target="_blank">Read more</a>
       </ion-label>
     </ion-item>
   </ion-list>

@@ -14,5 +14,5 @@
     <p>Condition: {{ weather.weather[0].description }}</p>
     <img [src]="'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'" alt="Weather Icon" />
   </div>
-  <p *ngIf="!weather">No weather data available.</p>
+  <p *ngIf="!weather">No weather data available for {{countryName}}.</p>
 </ion-content>

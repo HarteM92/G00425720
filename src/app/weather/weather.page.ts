@@ -4,16 +4,18 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HttpClientModule } from '@angular/common/http';
+import { CountriesPage } from '../countries/countries.page';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.page.html',
   styleUrls: ['./weather.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, HttpClientModule],
+  imports: [IonicModule, CommonModule, HttpClientModule,],
 })
 export class WeatherPage implements OnInit {
   weather: any = null;
+  countryName: string = '';
   cityName: string = '';
   latitude: string = '';
   longitude: string = '';
@@ -28,6 +30,7 @@ export class WeatherPage implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
+      this.countryName = params['name'];
       this.cityName = params['city'];
       this.latitude = params['lat'];
       this.longitude = params['lon'];

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/countries"></ion-back-button>
     </ion-buttons>
-    <ion-title>News</ion-title>
+    <ion-title>News from {{countryName}} </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,7 +20,7 @@
       </ion-label>
     </ion-item>
   </ion-list>
-  <ng-template #noNews>
-    <p>No news available.</p>
+  <ng-template #noNews> 
+    <p>No news found for {{countryName}}. </p>
   </ng-template>
 </ion-content>

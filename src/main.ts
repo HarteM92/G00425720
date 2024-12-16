@@ -16,3 +16,5 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes, withPreloading(PreloadAllModules)),
   ],
 });
+
+// reference for commit structure to github https://www.conventionalcommits.org/en/v1.0.0/

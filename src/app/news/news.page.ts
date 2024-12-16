@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 export class NewsPage implements OnInit {
   news: any[] = [];
   countryCode: string = '';
+  countryName: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class NewsPage implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       this.countryCode = params['code'];
+      this.countryName = params['name'];
       if (this.countryCode) {
         this.fetchNews();
       }
@@ -57,3 +59,12 @@ export class NewsPage implements OnInit {
     );
   }
 }
+
+/* references: 
+https://restcountries.com/#endpoints-name
+https://www.youtube.com/watch?v=gDiDi2SgHfY&pp=ygUPI3dlYXRoZXJhbmd1bGFy
+https://openweathermap.org/current
+https://stackoverflow.com/questions/33404172/creating-a-weather-app-using-angularjs-and-openweather
+Various Lecture Notes from Module Page 
+*/ 
+
